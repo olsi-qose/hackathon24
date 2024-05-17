@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - POSTGRES_DB=shopify
+      - POSTGRES_PASSWORD=shopify
+      - POSTGRES_USER=shopify
+    ports:
+      - 5432:5432
+  shopify-service:
+    image: 'shopify-service:latest'
+    build:
+      context: .
+    container_name: shopify-service
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/shopify
+      - SPRING_DATASOURCE_USERNAME=shopify
+      - SPRING_DATASOURCE_PASSWORD=shopify
+    ports:
+      - 8081:8081
