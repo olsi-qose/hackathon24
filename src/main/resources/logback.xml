@@ -7,7 +7,7 @@
 
     <appender name="STDOUT" class="ConsoleAppender">
         <encoder class="PatternLayoutEncoder">
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %highlight([%level]) %logger{36} -- %msg%n</pattern>
+            <pattern>%highlight{%d{ABSOLUTE} %-1X{request-id} %-20X{merchant} %c{1}: %m{nolookups}}%n</pattern>
         </encoder>
     </appender>
 
