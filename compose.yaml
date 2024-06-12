@@ -19,4 +19,4 @@ services:
       - SPRING_DATASOURCE_USERNAME=shopify
       - SPRING_DATASOURCE_PASSWORD=shopify
     ports:
-      - 8081:8081
+      - 8089:8089
